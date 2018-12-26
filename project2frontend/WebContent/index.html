@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/glyphiconcolor.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" src="js/angular.js"></script>
+<script type="text/javascript" src="js/angular-route.js"></script>
+<script type="text/javascript" src="js/angular-cookies.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="controllers/usercontroller.js"></script>
+<script type="text/javascript" src="services/userservice.js"></script>
+<script type="text/javascript" src="controllers/jobcontroller.js"></script>
+<script type="text/javascript" src="services/jobservice.js"></script>
+<script type="text/javascript" src="controllers/blogcontroller.js"></script>
+<script type="text/javascript" src="controllers/blogindetailcontroller.js"></script>
+<script type="text/javascript" src="services/blogservice.js"></script>
+<script type="text/javascript" src="controllers/notificationcontroller.js"></script>
+<script type="text/javascript" src="services/notificationservice.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+<link rel="stylesheet" href="css/notification.css"/>
+<!-- <link rel="stylesheet" href="css/home.css"/> -->
+<!-- <link rel="stylesheet" href="css/registrationform1.css"> -->
+<link rel="stylesheet" href="css/navbar.css"/>
+</head>
+<body ng-app="app" background="images/1.jpg">
+
+<nav class="navbar navbar-default" id="navcolor">
+<div class="container">
+<div  class="navbar-header">
+<a href="" class="navbar-brand"><img src="images/niit.png" height="30px" width="70px"></a>
+<button type="button" class="navbar-toggle collapsed" 
+   data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+</div>
+<div class="collapse navbar-collapse" id="collapse-example">
+
+<ul class="nav navbar-nav" ><!-- class="nav navbar-nav navbar-right" -->
+<li><a href="#/protectedresource" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-lock"></span>&nbsp;<b>Protected Resource</b></a></li>
+<li><a href="#/getuser" ng-show="user.email != undefined"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>Edit User Profile</b></a></li>
+<li><a href="#/alljobs" ng-show="user.email != undefined"><span class="glyphicon glyphicon-search"></span>&nbsp;<b>Get All Jobs</b></a></li>
+<li><a href="#/addjob" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Job</b></a></li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blog</b><span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#/addblog" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Blog</b></a></li>
+<li><a href="#/blogswaitingforapproval/0" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Waiting For Approval</b></a></li>
+<li><a href="#/blogswaitingforapprovalpostedbyuser/0" ng-show="user.role != 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Update Waiting BlogPosts</b></a></li>
+<li><a href="#/blogswaitingforapprovalpostedbyuser1/1" ng-show="user.role != 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Update Approved BlogPosts</b></a></li>
+<li><a href="#/blogsapproved/1"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Approved</b></a></li>
+</ul>
+</li>
+</ul>
+
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown" >
+<a href="#/home" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email"> 
+<span class="glyphicon glyphicon-bell" > 
+  <span class="rw-number-notification" ng-if="notificationCount>0">{{notificationCount}}</span></span></a>
+   <ul class="dropdown-menu" >
+  <span class="dropdown-content">
+   <li ng-repeat="notification in notifications">
+     <a href="#/getnotification/{{notification.notificationId}}">Blog titled "<b>{{notification.blogTitle}} "</b>approval status is updated </a>
+     <hr>
+   </li>
+   </span>
+   </ul>
+</li>
+<li><a href="" ng-show="user.email != undefined"><b>WELCOME {{user.email}}</b></a>
+
+<li><a href="#/registerUser" ng-show="user.email == undefined"><span class="glyphicon glyphicon-registration-mark"></span>&nbsp;<b>Sign Up</b></a></li>
+<li><a href="#/login" ng-show="user.email == undefined"><span class="glyphicon glyphicon-log-in"></span>&nbsp;<b>Sign In</b></a></li>
+<li><a href="" ng-click="logout()" ng-show="user.email != undefined"><span class="glyphicon glyphicon-log-out"></span>&nbsp;<b>Sign out</b></a></li>
+</ul>
+</div>
+</nav>
+
+<div class="container">
+<div ng-view></div>
+</div>
+</body>
+</html>

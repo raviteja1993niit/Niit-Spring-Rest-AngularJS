@@ -1,0 +1,24 @@
+<div class="panel panel-info">
+<div class="panel-heading">
+<b>Blog Title: </b>{{blogPost.blogTitle}}<br>
+<b>Posted On :  </b>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br>
+<b>Posted By : </b> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
+<b>Email     :   </b> {{blogPost.postedBy.email}}<br>
+</div>
+<div class="panel-body">
+
+<p ng-bind-html="htmlContent">
+</p>
+
+<div>
+<br>
+<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email == blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">UPDATE</span></a><br>
+likes<br> 
+Post Comment<br>
+</div>
+</div>
+
+
+</div>
+
+</div>

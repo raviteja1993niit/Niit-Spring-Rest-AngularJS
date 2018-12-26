@@ -1,0 +1,44 @@
+<span style="color:red"><b>{{error.message}}</span>
+<form>
+<table class="table table">
+<tr>
+<td>
+<b>EMAIL_ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" ng-model="user.email">
+</td>
+</tr>
+<tr>
+<td>
+<b>PASSWORD:&nbsp;&nbsp;&nbsp;<input type="password" ng-model="user.password">
+</td>
+</tr>
+<tr>
+<td>
+<b>FIRST_NAME: <input type="text" ng-model="user.firstname">
+</td>
+</tr>
+<tr>
+<td>
+<b>LAST_NAME:&nbsp; <input type="text" ng-model="user.lastname">
+</td>
+</tr>
+<tr>
+<td>
+<b>MOBILE_NO:&nbsp; <input type="text" ng-model="user.phonenumber">
+</td>
+</tr>
+<tr>
+<td>
+<b>SELECT_ROLE:
+<select ng-model="user.role">
+<option value="STUDENT">STUDENT
+<option value="EMPLOYEE">EMPLOYEE
+<option value="ALUMNI">ALUMNI
+</select>
+</td>
+</tr>
+<tr><td>
+<button class="btn btn-md btn-info" ng-click="registerUser(user)">REGISTER</button>
+</td>
+</tr>
+</table>
+</form>

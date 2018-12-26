@@ -1,0 +1,31 @@
+<div class="container">
+<div class="panel panel-info">
+<div class="panel-heading">
+<b>Job Details:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<b>JOB SEARCH: &nbsp;</b><input type="text" ng-model="searchTXT">
+</div>
+<div class="panel-body">
+<ul style="list-style:none">
+<li ng-repeat="job in jobs| filter:searchTXT">
+<b>Job Title:{{job.jobTitle}}</b><br>
+<b>Skills Required:{{job.skillsRequired}}</b><br>
+<b>Years Of Experience:{{job.yrsOfExp}}</b><br>
+<div ng-show="showJobDetails && job.id == jobId">
+<b>Description:</b><br>
+&nbsp;&nbsp;{{job.description}}<br>
+<b>Location:</b><br>
+&nbsp;&nbsp;{{job.location}}<br>
+<b>Salary:</b><br>
+&nbsp;&nbsp;{{job.salary}}<br>
+</div>
+<a ng-click="setTrueValue(job.id)" ng-show="!(showJobDetails && job.id == jobId)">Show Details</a><br>
+<a ng-click="setValue(job.id)" ng-show="showJobDetails && job.id == jobId">Hide Details</a><br>
+<a href="" ng-show="user.role == 'ADMIN'" ng-click="deleteJob(job.id)"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;
+<a href="#/getjob/{{job.id}}" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit Job Details</a>
+<hr>
+</li>
+</ul>
+</div>
+</div>
+</div>

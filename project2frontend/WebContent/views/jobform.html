@@ -1,0 +1,30 @@
+<span>{{error.message}}</span>
+<span ng-show="user.role != 'ADMIN'"><h3>NOT AUTHORIZED TO POST ANY JOB DETAILS</h3></span>
+<div ng-show="user.role =='ADMIN'">
+<form>
+<table class="table table">
+<tr>
+<td><b>JOB TITLE:</td><td><input type="text" ng-model="job.jobTitle"></td>
+</tr>
+<tr>
+<td><b>JOB DESCRIPTION:</td><td><input type="textarea" ng-model="job.description"></td>
+</tr>
+<tr>
+<td><b>SKILLS REQUIRED:</td><td><input type="text" ng-model="job.skillsRequired"></td>
+</tr>
+<tr>
+<td><b>JOB LOCATION:</td><td><input type="text" ng-model="job.location"></td>
+</tr>
+<tr>
+<td><b>SALARY:</td><td><input type="text" ng-model="job.salary"></td>
+</tr>
+<tr>
+<td><b>COMPANY NAME:</td><td><input type="text" ng-model="job.companyname"></td>
+</tr>
+<tr>
+<td><b>YEARS-OF-EXPERIENCE</td><td><input type="text" ng-model="job.yrsOfExp"></td>
+</tr>
+<tr><td></td><td><button class="btn btn-md btn-info" ng-click="addJob(job)"><b>ADD JOB</button></td>
+</table>
+</form>
+</div>

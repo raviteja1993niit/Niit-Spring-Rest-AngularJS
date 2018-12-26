@@ -1,0 +1,10 @@
+<span style="color:red">{{error.message}}</span>
+<form>
+<table class="table table">
+<tr><td><b>BLOG TITLE:</b></td><td><textarea  ng-model="blogPost.blogTitle" rows="2" cols="90"></textarea></td>
+</tr>
+<tr><td><b>BLOG CONTENT:</b></td><td><textarea  ng-model="blogPost.blogContent" rows="5" cols="90"></textarea></td>
+</tr>
+<tr><td><button class="btn btn-md btn-info" ng-click="updateBlogPost(blogPost)"><b>UPDATE BLOG</b></button></td></tr>
+</table>
+</form>
